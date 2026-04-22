@@ -1,0 +1,39 @@
+{
+  "output_prefix": "sft_cot",
+  "model_hub_id": "Qwen/Qwen2.5-3B-Instruct",
+  "model_source": "/home/ym3447/学霸学渣SFT+DPO/models/Qwen2.5-3B-Instruct",
+  "adapter_path": "/home/ym3447/学霸学渣SFT+DPO/outputs/sft_cot_qwen25_3b/checkpoint-80",
+  "precision": "bf16",
+  "using_4bit": true,
+  "test_count": 108,
+  "modes": {
+    "direct": {
+      "simple_count": 69,
+      "complex_count": 39,
+      "overall_count": 108,
+      "simple_accuracy": 0.2608695652173913,
+      "complex_accuracy": 0.07692307692307693,
+      "overall_accuracy": 0.19444444444444445,
+      "simple_avg_output_tokens": 45.84057971014493,
+      "complex_avg_output_tokens": 112.05128205128206,
+      "overall_avg_output_tokens": 69.75,
+      "simple_correct": 18,
+      "complex_correct": 3,
+      "overall_correct": 21
+    },
+    "cot": {
+      "simple_count": 69,
+      "complex_count": 39,
+      "overall_count": 108,
+      "simple_accuracy": 0.2318840579710145,
+      "complex_accuracy": 0.1282051282051282,
+      "overall_accuracy": 0.19444444444444445,
+      "simple_avg_output_tokens": 48.028985507246375,
+      "complex_avg_output_tokens": 122.97435897435898,
+      "overall_avg_output_tokens": 75.0925925925926,
+      "simple_correct": 16,
+      "complex_correct": 5,
+      "overall_correct": 21
+    }
+  }
+}

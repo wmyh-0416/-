@@ -1,0 +1,37 @@
+{
+  "model_hub_id": "Qwen/Qwen2.5-3B-Instruct",
+  "model_source": "/home/ym3447/学霸学渣SFT+DPO/models/Qwen2.5-3B-Instruct",
+  "precision": "bf16",
+  "using_4bit": true,
+  "test_count": 108,
+  "modes": {
+    "direct": {
+      "simple_count": 69,
+      "complex_count": 39,
+      "overall_count": 108,
+      "simple_accuracy": 0.2463768115942029,
+      "complex_accuracy": 0.10256410256410256,
+      "overall_accuracy": 0.19444444444444445,
+      "simple_avg_output_tokens": 21.47826086956522,
+      "complex_avg_output_tokens": 32.41025641025641,
+      "overall_avg_output_tokens": 25.425925925925927,
+      "simple_correct": 17,
+      "complex_correct": 4,
+      "overall_correct": 21
+    },
+    "cot": {
+      "simple_count": 69,
+      "complex_count": 39,
+      "overall_count": 108,
+      "simple_accuracy": 0.18840579710144928,
+      "complex_accuracy": 0.05128205128205128,
+      "overall_accuracy": 0.1388888888888889,
+      "simple_avg_output_tokens": 87.57971014492753,
+      "complex_avg_output_tokens": 117.48717948717949,
+      "overall_avg_output_tokens": 98.37962962962963,
+      "simple_correct": 13,
+      "complex_correct": 2,
+      "overall_correct": 15
+    }
+  }
+}

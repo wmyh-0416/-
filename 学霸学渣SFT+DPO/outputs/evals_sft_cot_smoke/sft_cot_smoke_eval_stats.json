@@ -1,0 +1,39 @@
+{
+  "output_prefix": "sft_cot_smoke",
+  "model_hub_id": "Qwen/Qwen2.5-3B-Instruct",
+  "model_source": "/home/ym3447/学霸学渣SFT+DPO/models/Qwen2.5-3B-Instruct",
+  "adapter_path": "/home/ym3447/学霸学渣SFT+DPO/outputs/sft_cot_qwen25_3b/checkpoint-80",
+  "precision": "bf16",
+  "using_4bit": true,
+  "test_count": 2,
+  "modes": {
+    "direct": {
+      "simple_count": 0,
+      "complex_count": 2,
+      "overall_count": 2,
+      "simple_accuracy": 0.0,
+      "complex_accuracy": 0.0,
+      "overall_accuracy": 0.0,
+      "simple_avg_output_tokens": 0.0,
+      "complex_avg_output_tokens": 128.0,
+      "overall_avg_output_tokens": 128.0,
+      "simple_correct": 0,
+      "complex_correct": 0,
+      "overall_correct": 0
+    },
+    "cot": {
+      "simple_count": 0,
+      "complex_count": 2,
+      "overall_count": 2,
+      "simple_accuracy": 0.0,
+      "complex_accuracy": 0.0,
+      "overall_accuracy": 0.0,
+      "simple_avg_output_tokens": 0.0,
+      "complex_avg_output_tokens": 160.0,
+      "overall_avg_output_tokens": 160.0,
+      "simple_correct": 0,
+      "complex_correct": 0,
+      "overall_correct": 0
+    }
+  }
+}
