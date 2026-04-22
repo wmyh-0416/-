@@ -1,0 +1,56 @@
+{
+  "seed": 42,
+  "source_master": "alignment_outputs/master_clean_dataset_final.jsonl",
+  "original_counts": {
+    "total": 527,
+    "simple": 335,
+    "complex": 192,
+    "objective": 446,
+    "open_ended": 81
+  },
+  "expected_counts_note": {
+    "expected_total": 527,
+    "expected_simple": 335,
+    "expected_complex": 192,
+    "actual_total": 527,
+    "actual_simple": 335,
+    "actual_complex": 192
+  },
+  "train_counts": {
+    "total": 367,
+    "simple": 233,
+    "complex": 134,
+    "objective": 311,
+    "open_ended": 56
+  },
+  "val_counts": {
+    "total": 52,
+    "simple": 33,
+    "complex": 19,
+    "objective": 44,
+    "open_ended": 8
+  },
+  "test_counts": {
+    "total": 108,
+    "simple": 69,
+    "complex": 39,
+    "objective": 91,
+    "open_ended": 17
+  },
+  "export_counts": {
+    "sft_cot_train": 367,
+    "sft_nocot_train": 367,
+    "dpo_adaptive_train": 367,
+    "sft_cot_val": 52,
+    "sft_nocot_val": 52,
+    "dpo_adaptive_val": 52,
+    "test_eval": 108
+  },
+  "consistency_checks": {
+    "train_line_aligned": true,
+    "val_line_aligned": true,
+    "splits_mutually_exclusive": true,
+    "split_union_recovers_master": true,
+    "train_val_test_total_matches_master": true
+  }
+}

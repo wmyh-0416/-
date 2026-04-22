@@ -1,0 +1,90 @@
+project:
+  name: 学霸学渣SFT+DPO
+
+model:
+  hub_id: Qwen/Qwen2.5-3B-Instruct
+  local_dir: models/Qwen2.5-3B-Instruct
+  prefer_local: true
+  attn_implementation: sdpa
+
+paths:
+  data_root: data/dataset_release/final_clean_527
+  sft_cot_train: data/dataset_release/final_clean_527/sft_cot_train.jsonl
+  sft_cot_val: data/dataset_release/final_clean_527/sft_cot_val.jsonl
+  sft_nocot_train: data/dataset_release/final_clean_527/sft_nocot_train.jsonl
+  sft_nocot_val: data/dataset_release/final_clean_527/sft_nocot_val.jsonl
+  dpo_train: data/dataset_release/final_clean_527/dpo_adaptive_train.jsonl
+  dpo_val: data/dataset_release/final_clean_527/dpo_adaptive_val.jsonl
+  test_eval: data/dataset_release/final_clean_527/test_eval.jsonl
+  output_root: outputs
+  adapter_root: outputs/adapters
+  log_root: outputs/logs
+
+runtime:
+  seed: 42
+  prefer_bf16: true
+  fallback_fp16: true
+  use_fast_tokenizer: true
+  trust_remote_code: false
+  low_cpu_mem_usage: true
+
+quantization:
+  enable_4bit: true
+  bnb_4bit_quant_type: nf4
+  bnb_4bit_use_double_quant: true
+
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  bias: none
+  task_type: CAUSAL_LM
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+
+smoke_test:
+  max_new_tokens: 32
+  do_sample: false
+  messages:
+    - role: system
+      content: You are a concise assistant.
+    - role: user
+      content: "Reply with exactly the two words: smoke test"
+
+sft:
+  max_length: 2048
+  assistant_only_loss: false
+  packing: false
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 1
+  gradient_accumulation_steps: 8
+  learning_rate: 2.0e-4
+  num_train_epochs: 1
+  warmup_ratio: 0.03
+  logging_steps: 10
+  eval_steps: 50
+  save_steps: 200
+  output_subdir_cot: sft-cot-qlora
+  output_subdir_nocot: sft-nocot-qlora
+
+dpo:
+  max_length: 2048
+  max_prompt_length: 1536
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 1
+  gradient_accumulation_steps: 8
+  learning_rate: 1.0e-5
+  num_train_epochs: 1
+  warmup_ratio: 0.03
+  logging_steps: 10
+  eval_steps: 50
+  save_steps: 200
+  beta: 0.1
+  init_adapter_path: null
+  output_subdir: dpo-qlora
